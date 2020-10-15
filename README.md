@@ -25,3 +25,10 @@ This bot works by saving accounts in a .txt file and when a user uses the `/gen 
 /restock Netflix - The bot will send an @everyone message saying that Netflix' service has been restocked.  
 
 # Account-Generator
+
+
+
+![generating an account](https://i.ibb.co/P434fTJ/using-bot.png)
+
+
+![account in DMs](https://i.ibb.co/YfD4nvg/bot-dms.png)
