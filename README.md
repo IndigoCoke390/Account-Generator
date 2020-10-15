@@ -15,8 +15,8 @@ I have coppied this account generator from `silvanohirtie/account-generator` go 
 This bot works by saving accounts in a .txt file and when a user uses the `/gen (account)` command it takes the account out of the stock and DMs the user that account
 
 ## Setup
-1.  Type `npm i --save` in your command line to install all the modules, alternativly you can type `npm i` to install all the modules and never install them again
-2.Create a file called `.env` and put this simple code into it `TOKEN=YOUR_TOKEN` but replace the "YOUR_TOKEN" part with your bot's token, then you should be good to go
+1. Type `npm i --save` in your command line to install all the modules, alternativly you can type `npm i` to install all the modules and never install them again
+2. Create a file called `.env` and put this simple code into it `TOKEN=YOUR_TOKEN` but replace the "YOUR_TOKEN" part with your bot's token, then you should be good to go
 
 ## 🐾 Examples
 /create Netflix - This will create a txt file with the name "Netflix"  
