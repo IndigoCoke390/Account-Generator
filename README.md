@@ -31,4 +31,4 @@ This bot works by saving accounts in a .txt file and when a user uses the `/gen 
 ![generating an account](https://i.ibb.co/P434fTJ/using-bot.png)
 
 
-![account in DMs](https://i.ibb.co/j4B15Sz/Screenshot-1.png)
+![account in DMs](https://i.imgur.com/DItPCZh.png)
