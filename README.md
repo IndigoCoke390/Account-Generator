@@ -8,7 +8,7 @@
 USE AT OWN RISK
 
 ## ❓ About
-I have coppied this account generator from `silvanohirtie/account-generator` go cheack that out. I have fixed the bug where you generate an account but it does not move that account from stock
+I have coppied this account generator from [silvanohirtie/account-generator](https://github.com/silvanohirtie/account-generator) go cheack that out. I have fixed the bug where you generate an account but it does not move that account from stock
 
 
 ## How it works
