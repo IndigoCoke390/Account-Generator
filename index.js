@@ -27,11 +27,18 @@ bot.on("message", message => {
     if (command === "test") {
         message.channel.send("Test done, bot is working");
         }
-		
 
+    if (command === "tos") {
+        message.channel.send("This is the InfyGen ToS.", {
+  files: [
+    "./infygentos/INFYGEN_TOS.txt"
+  ]
+});
+        }
+        
 		
 		    if(command === "help"){
-        message.channel.send("```\n HELP  \n\n User\n /stats - shows how many members are in InfyGen\n /help - shows the help commands \n /test - see if the bot is working \n /gen <account> - generate an account \n \n Administrator \n /create <account> - creates a database for the account \n /add <credentials> <account> - adds credentials to the account database \n /restock <account> - pings everyone that the account has been restocked ```")
+        message.channel.send("```\n HELP  \n\n User\n /stats - shows how many members are in InfyGen\n /tos - sends you the InfyGen ToS\n /help - shows the help commands \n /test - see if the bot is working \n /gen <account> - generate an account \n \n Administrator \n /create <account> - creates a database for the account \n /add <credentials> <account> - adds credentials to the account database \n /restock <account> - pings everyone that the account has been restocked ```")
  }
 
     if (command === "gen") {
@@ -46,7 +53,7 @@ bot.on("message", message => {
                 if (!args[0])
                     return message.reply("Please, specify the service you want!");
                 var fs = require("fs");
-                const filePath = __dirname + "/" + args[0] + ".txt";
+                const filePath = __dirname + "/accounts" +"/" + args[0] + ".txt";
                 fs.readFile(filePath, function (err, data) {
                     if (!err) {
                         data = data.toString();
@@ -66,7 +73,7 @@ bot.on("message", message => {
                                     footer: {
                                         icon_url:
                                             "https://cdn.discordapp.com/avatars/530778425540083723/7a05e4dd16825d47b6cdfb02b92d26a5.png",
-                                        text: "Buy discord bots from Silvano#8106"
+                                        text: "Buy discord bots from Silvano#8106 edited by Naomi#0069"
                                     },
                                     thumbnail: {
                                         url:
@@ -80,6 +87,7 @@ bot.on("message", message => {
                                     fields: []
                                 };
                                 message.channel.send({ embed });
+																console.log(`a ${args[0]} account was generated, the account was ${firstLine}`)
 
                                 generated.add(message.author.id);
                                 setTimeout(() => {
@@ -94,6 +102,7 @@ bot.on("message", message => {
                             message.channel.send(
                                 "Sorry, there isn't any account available for that service!"
                             );
+														console.log(args[0] + ` is out of stock`);
                         }
                     } else {
                         message.channel.send(
@@ -109,14 +118,14 @@ bot.on("message", message => {
             }
 
      if (command === "add") {
-            if (!message.member.hasPermission("ADMINISTRATOR"))
+            if (!message.member.permissions.has("ADMINISTRATOR"))
                 return message.reply("Sorry, you can't do it, you are not an admin!");
             var fs = require("fs");
             let messageArray = message.content.split(" ");
             let args = messageArray.slice(1);
             var account = args[0]
             var service = args[1]
-            const filePath = __dirname + "/" + args[1] + ".txt";
+            const filePath = __dirname + "/accounts" +"/" + args[1] + ".txt";
             fs.appendFile(filePath, os.EOL + args[0], function (err) {
                 if (err) return console.log(err);
                 message.channel.send("Done!")
@@ -125,12 +134,12 @@ bot.on("message", message => {
 
         }
         if (command === "create") {
-            if (!message.member.hasPermission("ADMINISTRATOR"))
+            if (!message.member.permissions.has("ADMINISTRATOR"))
                 return message.reply("Sorry, you can't do it, you are not an admin!");
             var fs = require("fs");
             let messageArray = message.content.split(" ");
             let args = messageArray.slice(1);
-            const filePath = __dirname + "/" + args[0] + ".txt";
+            const filePath = __dirname + "/accounts" +"/" + args[0] + ".txt";
             fs.writeFile(filePath, 'first:first', function (err) {
                 if (err) throw err;
                 message.channel.send("Done!")
@@ -139,7 +148,7 @@ bot.on("message", message => {
        if (command === "restock") {
             let messageArray = message.content.split(" ");
             let args = messageArray.slice(1);
-            if (!message.member.hasPermission("ADMINISTRATOR"))
+            if (!message.member.permissions.has("ADMINISTRATOR"))
                 return message.reply("Sorry, you can't do it, you are not an admin!");
             if (!args[0])
                 return message.reply(
@@ -154,6 +163,7 @@ bot.on("message", message => {
                 "<@" +
                 message.author.id +
                 ">"
+
             );
         }
     }
